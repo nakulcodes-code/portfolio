@@ -1,0 +1,847 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body and fonts */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Sticky Navigation Bar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 10px 20px;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+nav.scrolled {
+  background-color: #333; /* Dark background when scrolled */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #007BFF; /* Highlight color on hover */
+}
+
+/* Offset content to avoid overlap with fixed navbar */
+body {
+  padding-top: 60px; /* Adjust based on the height of the nav */
+}
+
+  
+/* Fullscreen Hero Section */
+.hero {
+  height: 100vh; /* Fullscreen height */
+  background: url('Hero-Section-Background.jpg') center/cover no-repeat; /* Add your desired background image */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Fade-In & Slide-Up for Header */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+}
+
+.fade-up:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.fade-up:nth-child(2) {
+  animation-delay: 1s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typewriter Effect for Introduction Text */
+.typewriter {
+  overflow: hidden; /* Ensures the text is hidden initially */
+  white-space: nowrap;
+  border-right: .15em solid #007BFF;
+  width: 0;
+  animation: typewriter 3.5s steps(30) 1s forwards, blinkCaret 0.75s step-end infinite;
+}
+
+@keyframes typewriter {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkCaret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Hero Text Styling */
+.hero header h1 {
+  font-size: 3.5rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.hero header p {
+  font-size: 1.5rem;
+  margin: 10px 0 20px;
+  font-weight: 300;
+}
+
+.hero .intro h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero .intro p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero .cta-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.hero .cta-button:hover {
+  background-color: #0056b3;
+}
+
+
+  
+/* About Section */
+.about {
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+}
+
+.about .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Fade-In and Slide-Up for Text */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
+}
+
+.fade-up:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.fade-up:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.fade-up:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-In for Image */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Style for Image */
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* About Text Styling */
+.about-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Style for the Resume Button */
+.btn-resume {
+  display: inline-block;
+  padding: 12px 25px;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: #007BFF;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-resume:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .btn-resume {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+
+.about-text h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-text,
+  .about-image {
+    max-width: 100%;
+  }
+}
+
+/* Education Section */
+.education{
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.education h2{
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.education-timeline{
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.education-timeline::before{
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #007BFF;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.education-item{
+  background: white;
+  padding: 20px;
+  width: 45%;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgb(0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-item:nth-child(odd){
+  align-self: flex-start;
+  text-align: right;
+  margin-right: 55%;
+}
+
+.education-item:nth-child(even){
+  align-self: flex-end;
+  text-align: left;
+  margin-left: 55%;
+}
+
+.education-item::before{
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #007BFF;
+  border-radius: 50%;
+  top: 20px;
+  left: calc(100% + 10px);
+}
+
+.education-item:nth-child(even)::before{
+  left: auto;
+  right: calc(100% + 10px);
+}
+
+.education-item:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgb(0, 0, 0.15);
+}
+
+.education-item h3{
+  color: #007BFF;
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.education-item p{
+  color: #555;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px){
+  .education h2{
+    font-size: 2rem;
+  }
+  .education-item{
+    width: 80%;
+    text-align: center;
+    margin: 20px auto;
+  }
+  .education-item:nth-child(odd),.education-item:nth-child(even){
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .education-timeline::before{
+    left: 20px;
+  }
+  .education-item::before,.education-item:nth-child(even)::before{
+    left: -20px;
+    right: auto;
+  }
+}
+
+
+  /* Skills Section */
+.skills {
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.skills h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s forwards;
+}
+
+.skill-card i {
+  font-size: 3rem;
+  color: #007BFF;
+  margin-bottom: 15px;
+}
+
+.skill-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover Effect */
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+  
+/* Projects Section */
+.projects {
+  padding: 80px 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.3s;
+}
+
+.projects p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Grid Layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Increased the min-width for larger cards */
+  gap: 30px; /* Increased the gap for more space between cards */
+  justify-items: center; /* Centers the cards in the grid */
+  max-width: 1200px; /* Limit the maximum width of the grid */
+  margin: 0 auto; /* Centers the grid within the container */
+}
+
+/* Project Card */
+.project-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Ensures the card fills the grid space properly */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s forwards;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 20px 0 10px;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.project-card .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #007BFF;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.project-card .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjusted for medium screen sizes */
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Stacked layout for small screens */
+  }
+}
+
+
+
+
+
+/* Contact Section */
+.contact {
+  padding: 80px 20px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 1.2rem;
+  color: #ddd;
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #444;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  font-size: 1rem;
+  color: #ccc;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #555;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.contact-item {
+  margin: 0 20px;
+  font-size: 1.2rem;
+}
+
+.contact-item i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #007BFF;
+}
+
+.contact-item p {
+  margin-top: 8px;
+}
+
+.contact-item a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-item {
+    margin: 10px 0;
+  }
+}
+
+
+  
+/* Footer Styling */
+.footer {
+  background-color: #222; /* Dark background for footer */
+  color: #fff; /* Light text color */
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-left, .footer-middle, .footer-right {
+  flex: 1;
+  padding: 10px;
+}
+
+.footer h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 5px 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #007BFF; /* Highlight color for links */
+}
+
+/* Social Media Icons */
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.social-links li {
+  margin: 0 10px;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #007BFF; /* Highlight color for icons */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-left, .footer-middle, .footer-right {
+    flex: 100%;
+    margin-bottom: 20px;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* Define the Fade-In-Up Animation */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+/* Keyframes for fade-in-up animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optionally add a delay for different elements */
+.fade-up-delay {
+  animation-delay: 0.3s;
+}
+
+.fade-up-delay:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.fade-up-delay:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+  
